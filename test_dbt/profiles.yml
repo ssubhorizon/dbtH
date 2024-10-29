@@ -1,0 +1,11 @@
+test_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      schema: models_dev
+      host: llsglg0mjw.us-central1.gcp.clickhouse.cloud
+      port: 8443
+      user: models_dev
+      password: "v%YJm%oPegno6e7B"
+      secure: True
