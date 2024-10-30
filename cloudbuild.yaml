@@ -9,5 +9,6 @@ steps:
         pip install dbt-core
         pip install dbt-clickhouse
         dbt run --target dev
+        cat target/manifest.json
 options:
   logging: CLOUD_LOGGING_ONLY
