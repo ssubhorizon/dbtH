@@ -1,8 +1,6 @@
 steps:
-  - id: "manifest_copy"
-    name: "manifest_copy"
-    entrypoint: |-
-      gsutil cp gs://dbth_bucket/ target/
+  - name: gcr.io/cloud-builders/gsutil
+    args: ['cp', 'gs://dbth_bucket/manifest.json', 'target/manifest.json']
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
