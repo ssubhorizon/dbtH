@@ -5,7 +5,7 @@ steps:
     args:
     - '-c'
     - |
-      gsutil cp gs://dbth_bucket/manifest.json ./state
+      gsutil cp gs://dbth_bucket/manifest.json ./target
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
@@ -13,7 +13,7 @@ steps:
     args:
       - "-c"
       - |
-        cat ./state/manifest.json
+        cat ./target/manifest.json
         python -m pip install --upgrade pip
         pip install dbt-core
         pip install dbt-clickhouse
