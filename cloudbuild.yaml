@@ -2,13 +2,19 @@ steps:
   - name: gcr.io/cloud-builders/gsutil
     args: ['cp', 'gs://dbth_bucket/manifest.json', 'target/manifest.json']
 
+  - name: "shellscript"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - |
+      - cat target/manifest.json
+
   - id: "DBT RUN"
     name: "python:3.10-slim"
     entrypoint: "sh"
     args:
       - "-c"
       - |
-        cat target/manifest.json
         python -m pip install --upgrade pip
         pip install dbt-core
         pip install dbt-clickhouse
