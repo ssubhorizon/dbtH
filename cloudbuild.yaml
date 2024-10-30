@@ -14,4 +14,4 @@ options:
 artifacts:
   objects:
     location: 'gs://dbth_bucket/'
-    paths: ["target/*.*"]
+    paths: ["target/manifest.json"]
