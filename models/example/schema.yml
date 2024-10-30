@@ -19,3 +19,11 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: zz_test_model_three
+    description: "Derived DBT Model"
+    columns:
+      - name: id
+        description: "Primary key for this table"
+        data-tests:
+          - unique
