@@ -8,6 +8,6 @@ steps:
         python -m pip install --upgrade pip
         pip install dbt-core
         pip install dbt-clickhouse
-        dbt run --target prod --profiles-dir dbth --project-dir dbth
+        dbt run --target prod
 options:
   logging: CLOUD_LOGGING_ONLY
