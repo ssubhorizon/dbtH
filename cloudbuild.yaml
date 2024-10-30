@@ -9,5 +9,5 @@ steps:
         pip install dbt-core
         pip install dbt-clickhouse
         dbt run --target prod --profiles-dir dbt --project-dir dbt
-    options:
-      logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
