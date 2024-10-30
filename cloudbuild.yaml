@@ -16,7 +16,7 @@ steps:
         python -m pip install --upgrade pip
         pip install dbt-core dbt-clickhouse
         dbt run --target dev --select state:modified+ --defer --state ./state
-    waitFor: ['DOWNLOAD_MANIFEST']
+    waitFor: ['DOWNLOAD MANIFEST']
 
 options:
   logging: CLOUD_LOGGING_ONLY
