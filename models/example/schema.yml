@@ -27,3 +27,9 @@ models:
         description: "Primary key for this table"
         data-tests:
           - unique
+
+  - name: zz_test_model_four
+    description: "Derived DBT Model"
+    columns:
+      - name: name
+        description: "Not a Primary key for this table"
