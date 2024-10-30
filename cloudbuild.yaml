@@ -4,7 +4,8 @@ steps:
     args:
     - '-c'
     - |
-     gsutil -m cp -r 'gs://dbth_bucket/manifest.json' '.'
+      gsutil cat -r gs://dbth_bucket/manifest.json
+      gsutil -m cp -r 'gs://dbth_bucket/manifest.json' '.'
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
