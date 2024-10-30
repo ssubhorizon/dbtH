@@ -1,9 +1,9 @@
 steps:
   - id: "manifest_copy"
     name: "manifest_copy"
-    run: |-
+    entrypoint: |-
       gsutil cp gs://dbth_bucket/ target/
-      
+
   - id: "DBT RUN"
     name: "python:3.10-slim"
     entrypoint: "sh"
