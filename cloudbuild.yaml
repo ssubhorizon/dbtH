@@ -1,4 +1,12 @@
 steps:
+  - name: gcr.io/cloud-builders/gsutil
+    id: 'download_manifest'
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
+      gsutil cp gs://dbth_bucket/manifest.json /target
+
   - id: "DBT RUN"
     name: "python:3.10-slim"
     entrypoint: "sh"
@@ -6,6 +14,7 @@ steps:
       - "-c"
       - |
         cat ./target/manifest.json
+    waitFor: ['download_manifest']
 
 options:
   logging: CLOUD_LOGGING_ONLY
