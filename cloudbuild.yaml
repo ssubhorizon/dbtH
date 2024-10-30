@@ -9,7 +9,9 @@ steps:
         pip install dbt-core
         pip install dbt-clickhouse
         dbt run --target dev
-        pip install google-cloud-storage
-        gcloud storage cp target/manifest.json gs://dbth_bucket
 options:
   logging: CLOUD_LOGGING_ONLY
+artifacts:
+  objects:
+    location: ['gs://dbth_bucket/']
+    paths: ["target/*.*"]
