@@ -1,5 +1,6 @@
 steps:
   - name: gcr.io/cloud-builders/gsutil
+    id: 'download_manifest'
     entrypoint: 'bash'
     args:
     - '-c'
@@ -12,11 +13,9 @@ steps:
     args:
       - "-c"
       - |
-        cat /target/manifest.json
-        python -m pip install --upgrade pip
-        pip install dbt-core
-        pip install dbt-clickhouse
-        dbt run --target dev --select state:modified+ --defer --state ./
+        cat ./target/manifest.json
+    waitFor: ['download_manifest']
+
 options:
   logging: CLOUD_LOGGING_ONLY
 artifacts:
