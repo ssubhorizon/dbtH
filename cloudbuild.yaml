@@ -1,13 +1,10 @@
 steps:
   - name: gcr.io/cloud-builders/gsutil
-    args: ['cp', 'gs://dbth_bucket/manifest.json', 'target/manifest.json']
-
-  - name: "shellscript"
-    entrypoint: "sh"
+    entrypoint: 'bash'
     args:
-      - "-c"
-      - |
-      - cat target/manifest.json
+    - '-c'
+    - |
+     gsutil -m cp -r 'gs://dbth_bucket/manifest.json' '/target'
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
