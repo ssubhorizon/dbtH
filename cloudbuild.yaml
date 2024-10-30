@@ -4,7 +4,7 @@ steps:
     args:
     - '-c'
     - |
-      gsutil cp gs://dbth_bucket/manifest.json gs://dbth_test_bucket
+      gsutil cp gs://dbth_bucket/manifest.json /target
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
