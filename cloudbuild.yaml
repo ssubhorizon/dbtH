@@ -13,5 +13,5 @@ options:
   logging: CLOUD_LOGGING_ONLY
 artifacts:
   objects:
-    location: ['gs://dbth_bucket/']
-    paths: ["target/*.*"]
+    location: 'gs://dbth_bucket/'
+    paths: "target/*.*"
