@@ -25,3 +25,9 @@ models:
     columns:
       - name: fname
         description: "fruit name"
+
+  - name: zz_test_model_four
+    description: "animal table"
+    columns:
+      - name: fname
+        description: "animal name"
