@@ -21,15 +21,7 @@ models:
           - not_null
 
   - name: zz_test_model_three
-    description: "Derived DBT Model"
+    description: "fruits table"
     columns:
-      - name: id
-        description: "Primary key for this table"
-        data-tests:
-          - unique
-
-  - name: zz_test_model_four
-    description: "Derived DBT Model"
-    columns:
-      - name: name
-        description: "Not a Primary key for this table"
+      - name: fname
+        description: "fruit name"
