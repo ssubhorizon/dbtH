@@ -9,11 +9,11 @@
 
 with source_data as (
 
-    select 1 as id, 'Scott' as name
+    select 1 as uid, 'Scott' as uname
     union all
-    select 100 as id, 'Tiger' as name
+    select 100 as uid, 'Tiger' as uname
     union all
-    select null as id, '' as name
+    select null as uid, '' as uname
 
 )
 
