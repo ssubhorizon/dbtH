@@ -22,5 +22,5 @@ options:
   logging: CLOUD_LOGGING_ONLY
 artifacts:
   objects:
-    location: 'gs://dbth_bucket/'
+    location: '$_ARTIFACTS_LOCATION'
     paths: ["target/manifest.json"]
