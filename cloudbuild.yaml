@@ -5,7 +5,7 @@ steps:
     args:
     - '-c'
     - |
-      gsutil cp gs://dbth_bucket/manifest.json ./state
+      gsutil cp gs://dbth_bucket/full_build/manifest.json ./state
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
