@@ -5,7 +5,16 @@ steps:
     args:
     - '-c'
     - |
-      gsutil cp gs://dbth_bucket/full_build/manifest.json ./state
+      file_path=gs://dbth_bucket/full_build/manifest.json
+      gsutil -q stat $file_path
+      status=$?
+
+      if [[ $status == 0 ]]; then
+        gsutil cp gs://dbth_bucket/full_build/manifest.json ./state
+      else
+        echo "Manifest File does not exist. Continuing with the build."
+      fi
+      
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
@@ -20,6 +29,7 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
+
 artifacts:
   objects:
     location: '$_ARTIFACTS_LOCATION'
