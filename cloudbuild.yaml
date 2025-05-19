@@ -18,7 +18,7 @@ steps:
 
   - id: "DBT RUN"
     name: "python:3.10-slim"
-    entrypoint: "bash"
+    entrypoint: "sh"
     args:
       - "-c"
       - |
@@ -26,9 +26,17 @@ steps:
         pip install dbt-core dbt-clickhouse
         dbt run $_DBT_RUN_PARAMETERS
         dbt docs generate
+    waitFor: ['DOWNLOAD MANIFEST']
+
+  - id: "UPLOAD OUTPUTS"
+    name: gcr.io/cloud-builders/gsutil
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
         gsutil cp ./target/catalog.json gs://dbth_bucket/full_build/
         gsutil cp ./target/index.html gs://dbth_bucket/full_build/
-    waitFor: ['DOWNLOAD MANIFEST']
+    waitFor: ['DBT RUN']
 
 options:
   logging: CLOUD_LOGGING_ONLY
