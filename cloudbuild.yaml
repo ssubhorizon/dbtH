@@ -11,8 +11,6 @@ steps:
 
       if [[ $status == 0 ]]; then
         gsutil cp gs://dbth_bucket/full_build/manifest.json ./state
-        gsutil cp gs://dbth_bucket/full_build/catalog.json ./state
-        gsutil cp gs://dbth_bucket/full_build/index.html ./state
       else
         echo "Manifest File does not exist. Continuing with the build."
       fi
