@@ -26,6 +26,8 @@ steps:
         pip install dbt-core dbt-clickhouse
         dbt run $_DBT_RUN_PARAMETERS
         dbt docs generate
+        gsutil cp ./state/catalog.json gs://dbth_bucket/full_build/
+        gsutil cp ./state/index.html gs://dbth_bucket/full_build/
     waitFor: ['DOWNLOAD MANIFEST']
 
 options:
