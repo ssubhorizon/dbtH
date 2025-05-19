@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: zz_test_model_one
+  - name: zz_model_one
     description: "A starter dbt model"
     columns:
       - name: id
@@ -11,7 +11,7 @@ models:
           - unique
           - not_null
 
-  - name: zz_test_model_two
+  - name: zz_model_two
     description: "A starter dbt model"
     columns:
       - name: id
@@ -20,13 +20,13 @@ models:
           - unique
           - not_null
 
-  - name: zz_test_model_three
+  - name: zz_model_three
     description: "fruits table"
     columns:
       - name: fname
         description: "fruit name"
 
-  - name: zz_test_model_four
+  - name: zz_model_four
     description: "animal table"
     columns:
       - name: fname
